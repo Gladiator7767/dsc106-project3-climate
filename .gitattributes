@@ -1,0 +1,2 @@
+# Preserve the exact CSV bytes recorded by data/provenance.json.
+data/climate.csv -text
