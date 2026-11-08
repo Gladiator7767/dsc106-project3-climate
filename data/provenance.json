@@ -1,0 +1,303 @@
+{
+  "meta": {
+    "title": "Exploring Regional Warming Under Different Climate Scenarios",
+    "retrieved": "2026-11-02T13:53:16.008894+00:00",
+    "baseline": [
+      1995,
+      2014
+    ],
+    "models": [
+      "CanESM5",
+      "IPSL-CM6A-LR",
+      "MPI-ESM1-2-LR"
+    ],
+    "member": "r1i1p1f1",
+    "scenarios": {
+      "ssp126": "SSP1-2.6",
+      "ssp585": "SSP5-8.5"
+    },
+    "regions": [
+      {
+        "id": "global",
+        "name": "Global",
+        "south": -90,
+        "north": 90
+      },
+      {
+        "id": "arctic",
+        "name": "Arctic",
+        "south": 60,
+        "north": 90
+      },
+      {
+        "id": "north-mid",
+        "name": "Northern midlatitudes",
+        "south": 30,
+        "north": 60
+      },
+      {
+        "id": "north-tropics",
+        "name": "Northern tropics",
+        "south": 0,
+        "north": 30
+      },
+      {
+        "id": "south-tropics",
+        "name": "Southern tropics",
+        "south": -30,
+        "north": 0
+      },
+      {
+        "id": "south-mid",
+        "name": "Southern midlatitudes",
+        "south": -60,
+        "north": -30
+      },
+      {
+        "id": "antarctic",
+        "name": "Antarctic",
+        "south": -90,
+        "north": -60
+      }
+    ],
+    "method": "Monthly tas (K), native-grid areacella area weights; cells selected by latitude center, land and ocean included; annual means weighted by days per month; subtract each model-region 1995–2014 mean of annual means. Scenario and period comparisons use equal weights per model and per year.",
+    "catalog": "https://storage.googleapis.com/cmip6/cmip6-zarr-consolidated-stores.csv",
+    "limitations": "Three availability-selected models, one realization each, not a representative or complete CMIP6 ensemble. Selected-model min–max is not a confidence interval. Latitude bands are not countries. Scenarios are conditional projections, not forecasts. Baseline is recent history, not preindustrial."
+  },
+  "sources": [
+    {
+      "activity_id": "CMIP",
+      "institution_id": "CCCma",
+      "source_id": "CanESM5",
+      "experiment_id": "historical",
+      "member_id": "r1i1p1f1",
+      "table_id": "fx",
+      "variable_id": "areacella",
+      "grid_label": "gn",
+      "zstore": "gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/historical/r1i1p1f1/fx/areacella/gn/v20190429/",
+      "dcpp_init_year": null,
+      "version": 20190429
+    },
+    {
+      "activity_id": "CMIP",
+      "institution_id": "CCCma",
+      "source_id": "CanESM5",
+      "experiment_id": "historical",
+      "member_id": "r1i1p1f1",
+      "table_id": "Amon",
+      "variable_id": "tas",
+      "grid_label": "gn",
+      "zstore": "gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/historical/r1i1p1f1/Amon/tas/gn/v20190429/",
+      "dcpp_init_year": null,
+      "version": 20190429
+    },
+    {
+      "activity_id": "ScenarioMIP",
+      "institution_id": "CCCma",
+      "source_id": "CanESM5",
+      "experiment_id": "ssp126",
+      "member_id": "r1i1p1f1",
+      "table_id": "Amon",
+      "variable_id": "tas",
+      "grid_label": "gn",
+      "zstore": "gs://cmip6/CMIP6/ScenarioMIP/CCCma/CanESM5/ssp126/r1i1p1f1/Amon/tas/gn/v20190429/",
+      "dcpp_init_year": null,
+      "version": 20190429
+    },
+    {
+      "activity_id": "ScenarioMIP",
+      "institution_id": "CCCma",
+      "source_id": "CanESM5",
+      "experiment_id": "ssp585",
+      "member_id": "r1i1p1f1",
+      "table_id": "Amon",
+      "variable_id": "tas",
+      "grid_label": "gn",
+      "zstore": "gs://cmip6/CMIP6/ScenarioMIP/CCCma/CanESM5/ssp585/r1i1p1f1/Amon/tas/gn/v20190429/",
+      "dcpp_init_year": null,
+      "version": 20190429
+    },
+    {
+      "activity_id": "CMIP",
+      "institution_id": "IPSL",
+      "source_id": "IPSL-CM6A-LR",
+      "experiment_id": "historical",
+      "member_id": "r1i1p1f1",
+      "table_id": "fx",
+      "variable_id": "areacella",
+      "grid_label": "gr",
+      "zstore": "gs://cmip6/CMIP6/CMIP/IPSL/IPSL-CM6A-LR/historical/r1i1p1f1/fx/areacella/gr/v20180803/",
+      "dcpp_init_year": null,
+      "version": 20180803
+    },
+    {
+      "activity_id": "CMIP",
+      "institution_id": "IPSL",
+      "source_id": "IPSL-CM6A-LR",
+      "experiment_id": "historical",
+      "member_id": "r1i1p1f1",
+      "table_id": "Amon",
+      "variable_id": "tas",
+      "grid_label": "gr",
+      "zstore": "gs://cmip6/CMIP6/CMIP/IPSL/IPSL-CM6A-LR/historical/r1i1p1f1/Amon/tas/gr/v20180803/",
+      "dcpp_init_year": null,
+      "version": 20180803
+    },
+    {
+      "activity_id": "ScenarioMIP",
+      "institution_id": "IPSL",
+      "source_id": "IPSL-CM6A-LR",
+      "experiment_id": "ssp126",
+      "member_id": "r1i1p1f1",
+      "table_id": "Amon",
+      "variable_id": "tas",
+      "grid_label": "gr",
+      "zstore": "gs://cmip6/CMIP6/ScenarioMIP/IPSL/IPSL-CM6A-LR/ssp126/r1i1p1f1/Amon/tas/gr/v20190903/",
+      "dcpp_init_year": null,
+      "version": 20190903
+    },
+    {
+      "activity_id": "ScenarioMIP",
+      "institution_id": "IPSL",
+      "source_id": "IPSL-CM6A-LR",
+      "experiment_id": "ssp585",
+      "member_id": "r1i1p1f1",
+      "table_id": "Amon",
+      "variable_id": "tas",
+      "grid_label": "gr",
+      "zstore": "gs://cmip6/CMIP6/ScenarioMIP/IPSL/IPSL-CM6A-LR/ssp585/r1i1p1f1/Amon/tas/gr/v20190903/",
+      "dcpp_init_year": null,
+      "version": 20190903
+    },
+    {
+      "activity_id": "CMIP",
+      "institution_id": "MPI-M",
+      "source_id": "MPI-ESM1-2-LR",
+      "experiment_id": "historical",
+      "member_id": "r1i1p1f1",
+      "table_id": "fx",
+      "variable_id": "areacella",
+      "grid_label": "gn",
+      "zstore": "gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/historical/r1i1p1f1/fx/areacella/gn/v20190710/",
+      "dcpp_init_year": null,
+      "version": 20190710
+    },
+    {
+      "activity_id": "CMIP",
+      "institution_id": "MPI-M",
+      "source_id": "MPI-ESM1-2-LR",
+      "experiment_id": "historical",
+      "member_id": "r1i1p1f1",
+      "table_id": "Amon",
+      "variable_id": "tas",
+      "grid_label": "gn",
+      "zstore": "gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/historical/r1i1p1f1/Amon/tas/gn/v20190710/",
+      "dcpp_init_year": null,
+      "version": 20190710
+    },
+    {
+      "activity_id": "ScenarioMIP",
+      "institution_id": "MPI-M",
+      "source_id": "MPI-ESM1-2-LR",
+      "experiment_id": "ssp126",
+      "member_id": "r1i1p1f1",
+      "table_id": "Amon",
+      "variable_id": "tas",
+      "grid_label": "gn",
+      "zstore": "gs://cmip6/CMIP6/ScenarioMIP/MPI-M/MPI-ESM1-2-LR/ssp126/r1i1p1f1/Amon/tas/gn/v20190710/",
+      "dcpp_init_year": null,
+      "version": 20190710
+    },
+    {
+      "activity_id": "ScenarioMIP",
+      "institution_id": "MPI-M",
+      "source_id": "MPI-ESM1-2-LR",
+      "experiment_id": "ssp585",
+      "member_id": "r1i1p1f1",
+      "table_id": "Amon",
+      "variable_id": "tas",
+      "grid_label": "gn",
+      "zstore": "gs://cmip6/CMIP6/ScenarioMIP/MPI-M/MPI-ESM1-2-LR/ssp585/r1i1p1f1/Amon/tas/gn/v20190710/",
+      "dcpp_init_year": null,
+      "version": 20190710
+    }
+  ],
+  "coverage": {
+    "CanESM5": [
+      {
+        "experiment": "historical",
+        "months": 240,
+        "latitudeCells": 64,
+        "longitudeCells": 128,
+        "calendar": "365_day"
+      },
+      {
+        "experiment": "ssp126",
+        "months": 1032,
+        "latitudeCells": 64,
+        "longitudeCells": 128,
+        "calendar": "noleap"
+      },
+      {
+        "experiment": "ssp585",
+        "months": 1032,
+        "latitudeCells": 64,
+        "longitudeCells": 128,
+        "calendar": "noleap"
+      }
+    ],
+    "IPSL-CM6A-LR": [
+      {
+        "experiment": "historical",
+        "months": 240,
+        "latitudeCells": 143,
+        "longitudeCells": 144,
+        "calendar": "gregorian"
+      },
+      {
+        "experiment": "ssp126",
+        "months": 1032,
+        "latitudeCells": 143,
+        "longitudeCells": 144,
+        "calendar": "gregorian"
+      },
+      {
+        "experiment": "ssp585",
+        "months": 1032,
+        "latitudeCells": 143,
+        "longitudeCells": 144,
+        "calendar": "gregorian"
+      }
+    ],
+    "MPI-ESM1-2-LR": [
+      {
+        "experiment": "historical",
+        "months": 240,
+        "latitudeCells": 96,
+        "longitudeCells": 192,
+        "calendar": "proleptic_gregorian"
+      },
+      {
+        "experiment": "ssp126",
+        "months": 1032,
+        "latitudeCells": 96,
+        "longitudeCells": 192,
+        "calendar": "proleptic_gregorian"
+      },
+      {
+        "experiment": "ssp585",
+        "months": 1032,
+        "latitudeCells": 96,
+        "longitudeCells": 192,
+        "calendar": "proleptic_gregorian"
+      }
+    ]
+  },
+  "checks": {
+    "rows": 4032,
+    "duplicates": 0,
+    "missingValues": 0,
+    "baselineMeansNearZero": true
+  },
+  "sha256": "314ad5e3cd31c7974cbbc03d5043aeeadec8dca9720037165f4c9d0f733615cb"
+}

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Explore how regional warming and the gap between CMIP6 emissions scenarios change across periods and models.">
+<title>Exploring Regional Warming Under Different Climate Scenarios</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">
+<script defer src="vendor/d3.v7.min.js"></script><script defer src="vendor/topojson-client.min.js"></script><script defer src="climate-core.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#explore">Skip to visualization</a>
+<header class="top"><a class="brand" href="index.html">CLIMATE / COMPARED</a><nav aria-label="Main"><a aria-current="page" href="index.html">Explore</a><a href="exploration.html">Six starting questions</a><a href="writeup.html">Design &amp; methods</a></nav></header>
+<main>
+<section class="hero"><p class="eyebrow">DSC 106 · PROJECT 3 · CMIP6</p><h1>Exploring Regional Warming<br>Under Different Climate Scenarios</h1><p class="intro">Where does the gap between emissions scenarios grow most—and does the answer change with the period or model?</p><p class="scope">Near-surface air temperature · Land and ocean · Three selected models · 2015–2100<br>Warming is relative to each model and region's <strong>1995–2014</strong> baseline.</p></section>
+<section id="explore" aria-labelledby="explore-title">
+<div class="section-head"><h2 id="explore-title">Keep a reference. Explore what changes.</h2><button id="reset" type="button">Reset view</button></div>
+<ol class="explore-steps"><li><strong>Choose a region</strong> to see its warming trend.</li><li><strong>Keep period A</strong> and drag the timeline to change B.</li><li><strong>Compare the gaps</strong> across regions and models.</li></ol>
+<p id="load-status" role="status">Loading the CMIP6 subset…</p>
+<div class="controls final-controls"><label>Region<select id="region"></select></label><label>Model view<select id="model"><option value="mean">Mean of three models + range</option></select></label><div class="baseline-note"><strong>Scenario gap = SSP5-8.5 − SSP1-2.6</strong><span>A temperature difference in °C, calculated within each model.</span></div></div>
+<div class="workspace">
+<aside><h3>Choose a latitude band</h3><svg id="map" viewBox="0 0 400 250" role="group" aria-label="World map with selectable latitude bands"></svg><p class="small">Click a band, or use the Region menu. Bands include oceans; these are not country or city forecasts.</p><div id="region-facts"></div><div class="try"><strong>Start with a question</strong><p>Compare the Arctic with the other bands. Is the early-to-late change similar in all three models?</p><button id="try-arctic" type="button">Explore the Arctic</button></div></aside>
+<article class="chart-panel">
+<div class="chart-heading"><h3 id="line-title">Warming through time</h3><span id="timeline-unit">°C above 1995–2014</span></div>
+<div class="timeline-controls"><div class="segmented" role="group" aria-label="Timeline measure"><button type="button" data-measure="warming" aria-pressed="true">Warming</button><button type="button" data-measure="gap" aria-pressed="false">Scenario gap</button></div><label class="detail-label">Time-series detail<select id="smoothing"><option value="annual">Annual values</option><option value="smooth">10-year trailing average</option></select></label></div>
+<div id="timeline-legend" class="legend"></div>
+<svg id="timeline" viewBox="0 0 860 360" role="img" aria-label="Temperature anomaly time series"></svg>
+<p class="small">Drag to change <strong>B</strong>. The dashed outline marks <strong>A</strong>. Hover for exact values. The vertical scale stays fixed within each measure.</p>
+<div class="period-cards">
+<section class="period-card reference-card" aria-labelledby="reference-heading"><h4 id="reference-heading"><span class="period-token reference-token">A</span> Reference period</h4><p id="reference-label" class="period-label"></p><form id="reference-form" class="reference-form"><label>Start year<input id="a-start" type="number" min="2015" max="2100" step="1" value="2021" required></label><label>End year<input id="a-end" type="number" min="2015" max="2100" step="1" value="2040" required></label><button type="submit">Apply A</button></form><button id="pin-reference" class="text-button" type="button">Use current B as reference A</button><p id="reference-error" class="small form-error" role="alert" hidden></p></section>
+<section class="period-card current-card" aria-labelledby="current-heading"><h4 id="current-heading"><span class="period-token current-token">B</span> Current period</h4><p id="period-label" class="period-label"></p><div class="presets"><button type="button" data-period="2021,2040">2021–2040</button><button type="button" data-period="2041,2060">2041–2060</button><button type="button" data-period="2081,2100">2081–2100</button></div><div class="sliders"><label for="start">Start <output id="start-out"></output><input id="start" type="range" min="2015" max="2100" value="2081"></label><label for="end">End <output id="end-out"></output><input id="end" type="range" min="2015" max="2100" value="2100"></label></div></section>
+</div>
+<p id="period-notice" class="small period-notice"></p>
+<div id="summary" class="summary" aria-live="polite"></div><p id="current-warming" class="small"></p>
+<p class="small calculation-note">Period statistics always use the original annual values. Smoothing changes the time-series display only.</p>
+</article>
+</div>
+<section class="comparison" aria-labelledby="comparison-title"><div class="chart-heading"><div><p class="eyebrow">COMPARE THE TWO PERIODS</p><h2 id="comparison-title">How does the scenario gap change by region?</h2></div><label class="sort-label">Region order<select id="sort"><option value="latitude">Latitude order</option><option value="change">Largest B − A change</option></select></label></div><p id="comparison-period" class="small"></p><div class="legend period-legend"><span><b class="reference-ink">○</b> A · reference</span><span><b class="current-ink">◆</b> B · current</span><span>Whiskers span the three models' paired scenario gaps; not a confidence interval.</span></div><p class="small">Click a row to inspect that region. Each point is SSP5-8.5 minus SSP1-2.6 for the labeled period. The right column shows <strong>gap B − gap A</strong>. Global is a separate reference, not an extra latitude band.</p><div class="chart-scroll" tabindex="0" aria-label="Regional comparison; scroll horizontally on small screens"><svg id="comparison" viewBox="0 0 1120 440" role="group" aria-label="Regional scenario gaps in periods A and B"></svg></div><p id="comparison-insight" class="comparison-insight" aria-live="polite"></p></section>
+<section class="model-section" aria-labelledby="model-title"><div class="chart-heading"><div><p class="eyebrow">CHECK THE MODELS</p><h2 id="model-title">Does the model choice change the comparison?</h2></div></div><p id="model-context" class="small"></p><p class="small">This view keeps all three models visible. A model's scenario gap is calculated from its own two scenarios. The mean gives each model equal weight.</p><div class="chart-scroll" tabindex="0" aria-label="Model comparison; scroll horizontally on small screens"><svg id="model-comparison" viewBox="0 0 1120 295" role="img" aria-label="Scenario gaps in periods A and B for each model"></svg></div><p id="model-insight" class="comparison-insight"></p></section>
+<details class="data-details"><summary>Read the exact values and download this comparison</summary><div id="table-wrap"></div><button id="download" type="button">Download A/B comparison CSV</button> <a href="data/climate.csv" download>Download all annual values</a><p class="small">Values are rounded here; the CSV keeps additional decimal places. The comparison CSV includes both periods, each model and their mean, and the signed change.</p></details>
+</section>
+<section class="method-strip"><h2>Read the comparison correctly</h2><div><p><strong>A recent-history baseline.</strong> +2°C of warming means 2°C above 1995–2014 in that model and region. It is not a Paris Agreement threshold.</p><p><strong>Conditional projections.</strong> The scenarios describe different emissions assumptions. Neither has an assigned probability. A larger scenario gap is not a probability or a policy-effect estimate.</p><p><strong>A small model sample.</strong> CanESM5, IPSL-CM6A-LR and MPI-ESM1-2-LR; one run each. Their min–max range is not a confidence interval or the full range of possible futures.</p></div><a href="writeup.html#methods">Data sources, transformations and limitations →</a></section>
+</main>
+<footer>CMIP6 · Amon / tas · r1i1p1f1 · <a href="data/provenance.json">Source manifest</a> · <a href="exploration.html">Checkpoint exploration</a> · <a href="writeup.html">Team &amp; design rationale</a></footer>
+<div id="tooltip" role="status" class="tooltip" hidden></div>
+</body></html>

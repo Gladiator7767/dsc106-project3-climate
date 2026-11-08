@@ -1,0 +1,8 @@
+.python/
+data/raw/
+output/
+*.log
+__pycache__/
+.playwright-cli/
+preparation/
+tmp/

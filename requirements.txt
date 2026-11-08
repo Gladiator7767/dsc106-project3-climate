@@ -1,0 +1,7 @@
+xarray==2024.11.0
+zarr>=2.18,<3
+gcsfs
+dask
+cftime
+pandas<3
+numpy
