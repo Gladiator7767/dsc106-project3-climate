@@ -1,6 +1,6 @@
 # Exploring Regional Warming Under Different Climate Scenarios
 
-DSC 106 Project 3 — team review version, November 8, 2026.
+DSC 106 Project 3 — final version, November 11, 2026.
 
 Website: https://gladiator7767.github.io/dsc106-project3-climate/
 
@@ -18,7 +18,8 @@ Opening `index.html` with a `file://` URL will not load the JSON data reliably.
   current period B, regional and individual-model comparisons, sorting, exact table
   and CSV export. The timeline can show warming or the paired scenario gap.
 - `exploration.html`: six distinct exploratory charts for the checkpoint video.
-- `writeup.html`: English rationale, methods and limitations; development log pending.
+- `writeup.html`: English rationale, methods, limitations, team contributions,
+  approximately 35 total people-hours, and the most time-consuming work.
 - `data/climate.csv`, `climate.json`: actual processed CMIP6 data, 4,032 rows.
 - `data/provenance.json`: exact source paths, model coverage, checks and CSV hash.
 
@@ -57,6 +58,10 @@ periods are supported; overlap and unequal lengths are flagged on screen.
 The detailed interaction and data audit was completed on November 7.
 On November 8, the user-translated writeup was installed with terminology
 corrections and a shorter ending; visualization code and data were unchanged.
+On November 11, the confirmed team contributions and estimated hours were added:
+Yifeng Zheng 10, Edison Xu 9, Ye Teng 8.5, and Jinhui Qiu 7.5 (35 total).
+The most time-consuming work is described in the development section.
+A1–D1, visualization code, and data were preserved in this update.
 
 - `scripts/validate_final_calculations.cjs`: 13,022 numerical assertions against
   independently recomputed annual-data calculations, including boundary cases.
@@ -84,16 +89,17 @@ The bundled D3 is the sole plotting library; TopoJSON only decodes map geometry.
 ## Review and submission status
 
 This dedicated public repository serves its `main` branch root through GitHub Pages.
-Publication is for team review and does not submit the assignment to Gradescope.
+Publishing this final website does not submit the assignment to Gradescope.
 Do not upload `.python/`,
 `data/raw/`, `output/`, `tmp/` or the preparation directory containing internal drafts.
-The team has explicitly left actual roles, people-hours and the most time-consuming
-work blank for later completion. Fill them before final submission. The writeup is
-an AI-assisted review draft for the team to review and revise.
+The team development record is complete with the supplied contributions and
+approximate hours. The writeup retains its AI-assistance disclosure.
+The public webpage URL still needs to be submitted on Gradescope; no Gradescope
+submission is recorded by this publication update.
 Checkpoint requires a voiced MP4 of at most two minutes;
 the website alone is not the checkpoint submission.
 
 Official requirements: https://dsc106.com/projects/project3/
 Checkpoint: November 5, 2026, 11:59 PM. Final: November 13, 2026, 11:59 PM
-(extended deadline, verified November 8). The current Final instructions require
+(extended deadline, verified November 11). The current Final instructions require
 a public webpage URL, not a new video. The two-minute MP4 applies to Checkpoint.
